@@ -129,6 +129,21 @@ for (const [platform, cache, hosted, expected] of [
 """
         subprocess.run(["node", "-e", harness.replace("SOURCE", json.dumps(source))], check=True)
 
+    def test_path_check_uses_first_executable_not_all_matches(self):
+        source = (ROOT / "verification" / "Test-Probe.ps1").read_text()
+        selection = next(line for line in source.splitlines() if "$actualGo =" in line)
+        powershell(r"""
+function Get-Command {
+    param($Name, $CommandType)
+    [pscustomobject]@{Source='C:\probe\go.exe'}
+    [pscustomobject]@{Source='C:\preinstalled\go.exe'}
+}
+""" + selection + r"""
+if ($actualGo -is [array] -or $actualGo -cne 'C:\probe\go.exe') {
+    throw 'PATH resolution did not select the first executable'
+}
+""")
+
     def test_powershell_parses(self):
         scripts = [STORAGE] + [path.read_text() for path in (ROOT / "verification").glob("*.ps1")]
         for script in scripts:

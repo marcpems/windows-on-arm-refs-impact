@@ -2,7 +2,7 @@
 
 ## Status and purpose
 
-Prepared on 13 November 2026; **no hosted run has been dispatched**. The existing report and CSVs remain a static assessment.
+Hosted verification started on 13 November 2026. The original CSVs remain a static survey; measured results are reported separately.
 
 [Issue #15315](https://github.com/actions/runner-images/issues/15315) announces D: ReFS starting 30 November, **not** workspace, temporary-directory or tool-cache relocation. The two jobs deliberately separate these questions:
 
@@ -55,7 +55,9 @@ Dispatch other revisions individually only if needed; a v7 result does not certi
 
 `cache: false` disables Go dependency/build-cache integration; it **does not disable the hosted tool cache**. `check-latest: true` would not reliably force an installation either.
 
-Instead, before setup-go starts, both the selected cache root and its C:/D: counterpart are newly created and asserted empty. Each selected action receives `RUNNER_TOOL_CACHE` explicitly, requests an exact version and `architecture: arm64`, and disables dependency caching. No installed versions are removed. A successful outcome must resolve `go.exe` from that exact root, not a preinstalled executable. `GOTOOLCHAIN=local` prevents automatic Go toolchain switching.
+Instead, before setup-go starts, both the selected cache root and its C:/D: counterpart are newly created and asserted empty. The probe requests an exact version and `architecture: arm64`, and disables dependency caching. No installed versions are removed. A successful outcome must resolve `go.exe` from that exact root, not a preinstalled executable. `GOTOOLCHAIN=local` prevents automatic Go toolchain switching.
+
+**Important harness correction:** the initial runs showed that the runner overwrites a step-level `RUNNER_TOOL_CACHE` override with its native value. Those runs did not exercise the requested isolated cache and are not counted as scenario results. The corrected probe checks out the selected immutable setup-go commit, retains its original action inputs and Node runtime, and adds a small entrypoint wrapper that sets `process.env.RUNNER_TOOL_CACHE` immediately before loading the **unmodified official compiled bundle**. The bundle hash and runtime are recorded. Only the manifest's main entrypoint changes; the installer code is not patched. Thus the D: case simulates the cache location seen by the action process, not a platform-level runner reconfiguration.
 
 ## Read the evidence
 
@@ -93,4 +95,4 @@ actionlint .github\workflows\verify-setup-go.yml
 python verification\test_workflow.py
 ```
 
-These checks require PowerShell 7, Python with PyYAML, and actionlint. The tests parse scripts, exercise the first-step guards with mocked storage commands, and verify that the final outcome gate cannot hide failures. They never run actual disk commands. They do not substitute for hosted ReFS/Node/action verification.
+These checks require PowerShell 7, Node.js, Python with PyYAML, and actionlint. The tests parse scripts, exercise the first-step guards with mocked storage commands, check the bootstrap with a mocked action bundle, and verify that the final outcome gate cannot hide failures. They never run actual disk commands. They do not substitute for hosted ReFS/Node/action verification.

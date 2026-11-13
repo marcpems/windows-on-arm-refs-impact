@@ -61,7 +61,7 @@ try {
         throw 'D: tool-cache entry should be an ordinary directory, not a self-link'
     }
     $expectedGo = Join-Path $logical 'bin\go.exe'
-    $actualGo = (Get-Command go -CommandType Application).Source
+    $actualGo = (Get-Command go -CommandType Application | Select-Object -First 1).Source
     $result.goExecutable = $actualGo
     if ([IO.Path]::GetFullPath($actualGo) -ine [IO.Path]::GetFullPath($expectedGo)) {
         throw "PATH selected $actualGo instead of $expectedGo (possible preinstalled Go fallback)"
