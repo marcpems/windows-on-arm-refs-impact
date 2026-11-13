@@ -61,14 +61,13 @@ class WorkflowTests(unittest.TestCase):
 
     def test_all_action_choices_force_probe_cache_and_keep_failure_evidence(self):
         steps = WORKFLOW["jobs"]["verify"]["steps"]
-        actions = [step for step in steps if step.get("uses", "").startswith("actions/setup-go@")]
+        actions = [step for step in steps if step.get("uses") == "./.probe/setup-go"]
         self.assertEqual(len(actions), 8)
         choices = WORKFLOW["on"]["workflow_dispatch"]["inputs"]["setup_go"]["options"]
         for choice, action in zip(choices, actions[:4]):
             with self.subTest(choice=choice):
                 self.assertEqual(action["if"], f"inputs.setup_go == '{choice}'")
-                self.assertRegex(action["uses"], r"^actions/setup-go@[0-9a-f]{40}$")
-                self.assertEqual(action["env"]["RUNNER_TOOL_CACHE"], "${{ steps.prepare.outputs.toolcache }}")
+                self.assertEqual(action["env"]["PROBE_TOOL_CACHE"], "${{ steps.prepare.outputs.toolcache }}")
                 self.assertEqual(action["with"]["cache"], "false")
                 self.assertEqual(action["with"]["architecture"], "arm64")
                 self.assertEqual(action["continue-on-error"], "true")
@@ -86,6 +85,49 @@ class WorkflowTests(unittest.TestCase):
         gate = next(step for step in steps if step.get("run") == r".\verification\Assert-ProbeResults.ps1")
         self.assertNotIn("continue-on-error", gate)
         self.assertIn("always()", gate["if"])
+
+    def test_reserved_cache_override_runs_before_unmodified_bundle(self):
+        steps = WORKFLOW["jobs"]["verify"]["steps"]
+        checkout = next(step for step in steps if step.get("with", {}).get("repository") == "actions/setup-go")
+        self.assertEqual(checkout["with"]["ref"], "${{ steps.prepare.outputs.action_sha }}")
+        wrapper = (ROOT / "verification" / "Invoke-SetupGo.cjs").read_text()
+        self.assertLess(wrapper.index("process.env.RUNNER_TOOL_CACHE ="), wrapper.index("require("))
+        prepare = (ROOT / "verification" / "Prepare-Action.ps1").read_text()
+        self.assertIn("diff --exit-code -- dist/setup/index.js", prepare)
+        self.assertIn("node20|node24", prepare)
+        for step in steps:
+            self.assertNotIn("RUNNER_TOOL_CACHE", step.get("env", {}))
+
+    def test_bootstrap_supplies_cache_to_bundle_and_rejects_bad_inputs(self):
+        source = (ROOT / "verification" / "Invoke-SetupGo.cjs").read_text()
+        harness = r"""
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const source = SOURCE;
+const target = 'D:\\setup-go-probe\\' + 'a'.repeat(32) + '\\toolcache';
+for (const [platform, cache, hosted, expected] of [
+  ['win32', target, 'github-hosted', true],
+  ['linux', target, 'github-hosted', false],
+  ['win32', 'D:\\uncontrolled', 'github-hosted', false],
+  ['win32', target, 'self-hosted', false],
+]) {
+  let imported = false;
+  const env = {GITHUB_ACTIONS: 'true', RUNNER_ENVIRONMENT: hosted,
+    PROBE_TOOL_CACHE: cache, RUNNER_TOOL_CACHE: 'C:\\native'};
+  const execute = () => vm.runInNewContext(source, {
+    process: {env, platform, version: 'test', arch: 'arm64'},
+    console: {log() {}},
+    require(path) {
+      assert.equal(path, './dist/setup/index.js');
+      assert.equal(env.RUNNER_TOOL_CACHE, target);
+      imported = true;
+    },
+  });
+  if (expected) execute(); else assert.throws(execute);
+  assert.equal(imported, expected);
+}
+"""
+        subprocess.run(["node", "-e", harness.replace("SOURCE", json.dumps(source))], check=True)
 
     def test_powershell_parses(self):
         scripts = [STORAGE] + [path.read_text() for path in (ROOT / "verification").glob("*.ps1")]

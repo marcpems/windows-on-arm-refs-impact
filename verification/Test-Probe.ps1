@@ -46,7 +46,7 @@ try {
             throw "Unexpected relocation of $name"
         }
     }
-    if ($env:RUNNER_TOOL_CACHE -ine $state.toolcache) { throw 'Probe cache environment was not applied' }
+    if ($env:PROBE_TOOL_CACHE -ine $state.toolcache) { throw 'Probe cache input was not applied' }
     if ((Get-Volume -DriveLetter D).FileSystem -ne 'ReFS') { throw 'D: is no longer ReFS' }
     if ($env:SETUP_OUTCOME -ne 'success') {
         throw "setup-go outcome: $env:SETUP_OUTCOME. Inspect its log for the exact error; a network/download failure is not proof of the junction defect."

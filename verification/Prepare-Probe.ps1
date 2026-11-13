@@ -63,5 +63,6 @@ $state = [ordered]@{
 New-Item -ItemType Directory -Path '.\verification-results' | Out-Null
 $state | ConvertTo-Json -Depth 8 | Set-Content '.\verification-results\before.json'
 "toolcache=$toolcache" >> $env:GITHUB_OUTPUT
+"action_sha=$($revisions[$env:ACTION_REVISION])" >> $env:GITHUB_OUTPUT
 Write-Host "Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=$toolcache"
 Write-Host "Native cache left untouched: $($baseline.RUNNER_TOOL_CACHE)"

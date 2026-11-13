@@ -111,13 +111,24 @@ jobs:
           HOST_ARCH: ${{ runner.arch }}
         run: .\verification\Prepare-Probe.ps1
 
+      - name: Fetch the immutable official action
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          repository: actions/setup-go
+          ref: ${{ steps.prepare.outputs.action_sha }}
+          path: .probe/setup-go
+          persist-credentials: false
+
+      - name: Apply in-process cache override without changing the action bundle
+        run: .\verification\Prepare-Action.ps1
+
       - name: Cold installation with setup-go v7
         id: go-v7
         if: inputs.setup_go == 'v7'
         continue-on-error: true
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -128,9 +139,9 @@ jobs:
         id: go-v6
         if: inputs.setup_go == 'v6'
         continue-on-error: true
-        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -141,9 +152,9 @@ jobs:
         id: go-v5
         if: inputs.setup_go == 'v5'
         continue-on-error: true
-        uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -154,9 +165,9 @@ jobs:
         id: go-audit
         if: inputs.setup_go == 'audit-pin'
         continue-on-error: true
-        uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -169,7 +180,7 @@ jobs:
         continue-on-error: true
         env:
           SETUP_OUTCOME: ${{ inputs.setup_go == 'v7' && steps.go-v7.outcome || inputs.setup_go == 'v6' && steps.go-v6.outcome || inputs.setup_go == 'v5' && steps.go-v5.outcome || steps.go-audit.outcome }}
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         run: .\verification\Test-Probe.ps1 -Phase cold
 
       - name: Snapshot the completed cache before reuse
@@ -181,9 +192,9 @@ jobs:
         id: warm-v7
         if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'v7' }}
         continue-on-error: true
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -194,9 +205,9 @@ jobs:
         id: warm-v6
         if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'v6' }}
         continue-on-error: true
-        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -207,9 +218,9 @@ jobs:
         id: warm-v5
         if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'v5' }}
         continue-on-error: true
-        uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -220,9 +231,9 @@ jobs:
         id: warm-audit
         if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'audit-pin' }}
         continue-on-error: true
-        uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c
+        uses: ./.probe/setup-go
         env:
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         with:
           go-version: ${{ inputs.go_version }}
           architecture: arm64
@@ -235,7 +246,7 @@ jobs:
         continue-on-error: true
         env:
           SETUP_OUTCOME: ${{ inputs.setup_go == 'v7' && steps.warm-v7.outcome || inputs.setup_go == 'v6' && steps.warm-v6.outcome || inputs.setup_go == 'v5' && steps.warm-v5.outcome || steps.warm-audit.outcome }}
-          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+          PROBE_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
         run: .\verification\Test-Probe.ps1 -Phase warm
 
       - name: Enforce cold and warm outcomes (never hide an installation failure)
