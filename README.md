@@ -19,6 +19,12 @@ The assessment examines [runner-images issue #15315](https://github.com/actions/
 
 Workspace, temporary-directory, and tool-cache relocation are **not confirmed by the announcement**. The report treats them separately from the announced filesystem change.
 
+## Reproduce the setup-go check
+
+The manual [verification workflow](.github/workflows/verify-setup-go.yml) uses the guarded first-step D: provisioning from [IronRDP PR #2186](https://github.com/Devolutions/IronRDP/pull/2186), without its workspace/Cargo/temp relocation. It runs two independent `windows-11-arm` jobs: D: ReFS with a C: tool-cache root, and the separate hypothetical D: tool-cache-root scenario. Both start with isolated empty caches, then check warm reuse, Go identity and a native hello-world build/run.
+
+See [verification instructions, assertions, source evidence and limitations](verification/README.md). The workflow has **not been run**; adding it does not establish a runtime result.
+
 ## Scope and limitations
 
 This is a non-exhaustive survey of public projects and a bounded static compatibility assessment, not a runtime certification or a prediction of failure rates. All 1,627 inventoried job definitions were inspected, with additional script and action-source analysis. Some dependencies and entrypoints were unavailable or omitted; see the report and per-job coverage notes.

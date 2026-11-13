@@ -1,0 +1,252 @@
+name: Verify setup-go on Windows Arm ReFS
+
+on:
+  workflow_dispatch:
+    inputs:
+      setup_go:
+        description: Audited setup-go revision (each dispatch runs two jobs)
+        type: choice
+        default: v7
+        options:
+          - v7
+          - v6
+          - v5
+          - audit-pin
+      go_version:
+        description: Exact stable Go version with a Windows Arm distribution
+        type: string
+        default: '1.25.0'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: ${{ inputs.setup_go }} / ${{ matrix.scenario }}
+    runs-on: windows-11-arm
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        scenario: [d-only-cache-c, hypothetical-cache-d]
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      SCENARIO: ${{ matrix.scenario }}
+      ACTION_REVISION: ${{ inputs.setup_go }}
+      GO_VERSION: ${{ inputs.go_version }}
+      GOTOOLCHAIN: local
+
+    steps:
+      # Adapted from Devolutions/IronRDP#2186. No workspace, temp or cache relocation.
+      - name: Prepare D drive only (hosted Windows Arm guard)
+        id: storage
+        env:
+          HOST_ENVIRONMENT: ${{ runner.environment }}
+          HOST_OS: ${{ runner.os }}
+          HOST_ARCH: ${{ runner.arch }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:GITHUB_ACTIONS -ne 'true' -or
+              $env:HOST_ENVIRONMENT -ne 'github-hosted' -or
+              $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or
+              $env:HOST_OS -ne 'Windows' -or $env:HOST_ARCH -ne 'ARM64' -or
+              [System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture -ne 'Arm64') {
+            throw 'Disk provisioning is restricted to the designated hosted Windows Arm job'
+          }
+          $baseline = [ordered]@{}
+          foreach ($name in @('GITHUB_WORKSPACE', 'RUNNER_TEMP', 'TEMP', 'TMP', 'RUNNER_TOOL_CACHE')) {
+            $baseline[$name] = [Environment]::GetEnvironmentVariable($name)
+          }
+          "baseline=$($baseline | ConvertTo-Json -Compress)" >> $env:GITHUB_OUTPUT
+          Write-Host "Initial paths: $($baseline | ConvertTo-Json -Compress)"
+          Write-Host "Image: $env:ImageOS / $env:ImageVersion; runner: $env:RUNNER_NAME"
+          Get-Disk | Format-Table Number, BusType, PartitionStyle, Size, IsBoot, IsSystem, IsOffline, IsReadOnly
+          $partitions = @(Get-Partition)
+          $volumes = @(Get-Volume)
+          $drives = @(Get-PSDrive -PSProvider FileSystem)
+          if (($partitions | Where-Object DriveLetter -eq 'D') -or
+              ($volumes | Where-Object DriveLetter -eq 'D') -or
+              ($drives | Where-Object Name -eq 'D')) {
+            $existing = @($volumes | Where-Object DriveLetter -eq 'D')
+            if ($existing.Count -ne 1 -or $existing[0].FileSystem -ne 'ReFS' -or
+                @($partitions | Where-Object DriveLetter -eq 'D').Count -ne 1) {
+              throw 'D: is already assigned but is not an ordinary ReFS volume; never reformat it'
+            }
+            Write-Host 'Using existing D: ReFS volume without modifying it'
+          } else {
+            $eligible = @(Get-Disk | Where-Object {
+              $_.BusType -eq 'NVMe' -and $_.PartitionStyle -eq 'RAW' -and
+              -not $_.IsBoot -and -not $_.IsSystem -and
+              -not $_.IsOffline -and -not $_.IsReadOnly -and
+              $_.NumberOfPartitions -eq 0 -and $_.Size -ge 50GB -and
+              $_.Number -notin $partitions.DiskNumber
+            })
+            if ($eligible.Count -ne 1) {
+              throw "Expected exactly one unused eligible NVMe disk; found $($eligible.Count). No disk changed."
+            }
+            Write-Host "Initializing unused disk $($eligible[0].Number), $($eligible[0].Size) bytes"
+            $partition = Initialize-Disk -InputObject $eligible[0] -PartitionStyle GPT -PassThru |
+              New-Partition -UseMaximumSize -DriveLetter D
+            $volume = $partition | Format-Volume -DevDrive -FileSystem ReFS -NewFileSystemLabel 'SetupGoProbe' -Confirm:$false
+            if ($volume.FileSystem -ne 'ReFS' -or $volume.DriveLetter -ne 'D') {
+              throw 'Provisioned volume is not ReFS on D:'
+            }
+          }
+          if (-not (Test-Path 'C:\') -or -not (Test-Path 'D:\')) {
+            throw 'Both C: and D: must exist to exercise cacheWindowsDir'
+          }
+          Get-Volume -DriveLetter C, D | Format-Table DriveLetter, FileSystem, FileSystemLabel, Size, SizeRemaining
+
+      - name: Checkout verification scripts
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Prepare isolated empty tool caches
+        id: prepare
+        env:
+          BASELINE_JSON: ${{ steps.storage.outputs.baseline }}
+          HOST_OS: ${{ runner.os }}
+          HOST_ARCH: ${{ runner.arch }}
+        run: .\verification\Prepare-Probe.ps1
+
+      - name: Cold installation with setup-go v7
+        id: go-v7
+        if: inputs.setup_go == 'v7'
+        continue-on-error: true
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Cold installation with setup-go v6
+        id: go-v6
+        if: inputs.setup_go == 'v6'
+        continue-on-error: true
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Cold installation with setup-go v5
+        id: go-v5
+        if: inputs.setup_go == 'v5'
+        continue-on-error: true
+        uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Cold installation with the additional audited pin
+        id: go-audit
+        if: inputs.setup_go == 'audit-pin'
+        continue-on-error: true
+        uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Record cold-install evidence and smoke test
+        id: cold
+        if: always() && steps.prepare.outcome == 'success'
+        continue-on-error: true
+        env:
+          SETUP_OUTCOME: ${{ inputs.setup_go == 'v7' && steps.go-v7.outcome || inputs.setup_go == 'v6' && steps.go-v6.outcome || inputs.setup_go == 'v5' && steps.go-v5.outcome || steps.go-audit.outcome }}
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        run: .\verification\Test-Probe.ps1 -Phase cold
+
+      - name: Snapshot the completed cache before reuse
+        id: warm-ready
+        if: always() && steps.prepare.outcome == 'success'
+        run: .\verification\Prepare-WarmProbe.ps1
+
+      - name: Warm lookup with setup-go v7
+        id: warm-v7
+        if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'v7' }}
+        continue-on-error: true
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Warm lookup with setup-go v6
+        id: warm-v6
+        if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'v6' }}
+        continue-on-error: true
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Warm lookup with setup-go v5
+        id: warm-v5
+        if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'v5' }}
+        continue-on-error: true
+        uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Warm lookup with the additional audited pin
+        id: warm-audit
+        if: ${{ !cancelled() && steps.warm-ready.outcome == 'success' && inputs.setup_go == 'audit-pin' }}
+        continue-on-error: true
+        uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c
+        env:
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        with:
+          go-version: ${{ inputs.go_version }}
+          architecture: arm64
+          cache: false
+          check-latest: false
+
+      - name: Verify warm reuse and smoke test
+        id: warm
+        if: always() && steps.warm-ready.outcome == 'success'
+        continue-on-error: true
+        env:
+          SETUP_OUTCOME: ${{ inputs.setup_go == 'v7' && steps.warm-v7.outcome || inputs.setup_go == 'v6' && steps.warm-v6.outcome || inputs.setup_go == 'v5' && steps.warm-v5.outcome || steps.warm-audit.outcome }}
+          RUNNER_TOOL_CACHE: ${{ steps.prepare.outputs.toolcache }}
+        run: .\verification\Test-Probe.ps1 -Phase warm
+
+      - name: Enforce cold and warm outcomes (never hide an installation failure)
+        if: always() && steps.prepare.outcome == 'success'
+        run: .\verification\Assert-ProbeResults.ps1
+
+      - name: Upload diagnostics even when setup-go fails
+        if: always() && steps.prepare.outcome == 'success'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: setup-go-${{ inputs.setup_go }}-${{ matrix.scenario }}-${{ github.run_attempt }}
+          path: verification-results
+          if-no-files-found: error
+          retention-days: 14
