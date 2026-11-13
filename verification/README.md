@@ -2,14 +2,27 @@
 
 ## Status and purpose
 
-Hosted verification started on 13 November 2026. The original CSVs remain a static survey; measured results are reported separately.
+**Verified on 13 November 2026:** all four audited revisions passed cold installation and warm reuse with a C: tool-cache root and ReFS D:. All four reproduced the identical-path `EEXIST` junction error on a cold installation with the tool-cache root on D:; warm reuse passed. Keep the root on C: or correct that aliasing path before relocating it.
+
+| Audited revision | C: cold / warm | D: cold / warm | Final run |
+|---|---|---|---|
+| v7 | Pass / Pass | EEXIST / Pass | [43444892689](https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444892689) |
+| v6 | Pass / Pass | EEXIST / Pass | [43444901637](https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444901637) |
+| v5 | Pass / Pass | EEXIST / Pass | [43444908827](https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444908827) |
+| Additional audit pin | Pass / Pass | EEXIST / Pass | [43444915602](https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444915602) |
+
+These eight jobs used `windows-11-arm`, image `win11-vs2026-arm64` version `20261101.203.1`, C: NTFS, D: ReFS and Go `1.25.0`. Twelve successful invocations compiled and ran native hello-world programs. Warm checks confirmed unchanged cache markers/hashes; C: checks verified the directory junction and completion-file symlink.
+
+The four D: jobs **intentionally remain failed**; the exact error and successful warm controls establish the reproduction, not the red badge alone. [Persistent JSON evidence](results/2026-11-13.json) includes action/bundle identities, per-job paths, filesystem metadata, smoke results and error excerpts. Earlier harness-development runs are excluded: four had ineffective YAML cache overrides, and one selected every Go executable instead of the first PATH match. Both harness issues were fixed before the final runs.
+
+The original CSVs remain a static survey. No original project jobs were rerun, and this result does not imply the announcement moves the tool cache.
 
 [Issue #15315](https://github.com/actions/runner-images/issues/15315) announces D: ReFS starting 30 November, **not** workspace, temporary-directory or tool-cache relocation. The two jobs deliberately separate these questions:
 
-| Job | Change under test | Source-based expectation, not a measured result |
+| Job | Change under test | Observed result for the four audited revisions |
 |---|---|---|
-| `d-only-cache-c` | D: exists as ReFS; selected tool-cache root remains on C: | Cold setup-go copies Go to the corresponding D: path, creates a C: directory junction and `.complete` file symlink, then successfully compiles/runs native Arm Go. A second invocation reuses the cache and passes again. |
-| `hypothetical-cache-d` | D: ReFS **and** selected tool-cache root is on D: | The audited code copies Go, then attempts a junction whose source and destination are identical; a cold `EEXIST` failure is expected. Its completed physical cache should allow the second, warm invocation to succeed. |
+| `d-only-cache-c` | D: exists as ReFS; selected tool-cache root remains on C: | Cold setup-go copied Go to D:, created the C: junction and completion symlink, and passed the native smoke test. Warm reuse passed. |
+| `hypothetical-cache-d` | D: ReFS **and** selected tool-cache root is on D: | Cold setup-go populated the cache, then failed with `EEXIST` on an identical-source/destination junction. Warm reuse and native execution passed. |
 
 Both use fresh, randomly named tool-cache directories on the designated drive, not the runner's shared/preinstalled cache. This is a controlled drive-location test, **not an exact preservation of the native cache pathname or all its ACLs**. In the first job the native cache must initially be on C:; otherwise it stops rather than claiming the original baseline still holds. Workspace, `RUNNER_TEMP`, `TEMP` and `TMP` are recorded before provisioning and asserted unchanged afterward.
 

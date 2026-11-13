@@ -1,0 +1,2793 @@
+{
+  "runs": [
+    {
+      "conclusion": "failure",
+      "createdAt": "2026-11-13T14:40:01Z",
+      "databaseId": 43444892689,
+      "headSha": "ba5e46f83f1cdb2e0a515510700b1c4816a13275",
+      "jobs": [
+        {
+          "completedAt": "2026-11-13T14:41:56Z",
+          "conclusion": "success",
+          "databaseId": 131951669766,
+          "name": "v7 / d-only-cache-c",
+          "startedAt": "2026-11-13T14:40:05Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:07Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:06Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:25Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:07Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:33Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:25Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:35Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:33Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:47Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:48Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:26Z",
+              "conclusion": "success",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:48Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:26Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:41:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:26Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:41:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:26Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:41:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:34Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:41:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:35Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:41:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:35Z",
+              "conclusion": "success",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:41:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:35Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:41:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:35Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:41:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:35Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:41:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:38Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:41:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:38Z",
+              "conclusion": "success",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:41:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:40Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:41:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:41Z",
+              "conclusion": "success",
+              "name": "Post Warm lookup with setup-go v7",
+              "number": 35,
+              "startedAt": "2026-11-13T14:41:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:41Z",
+              "conclusion": "success",
+              "name": "Post Cold installation with setup-go v7",
+              "number": 36,
+              "startedAt": "2026-11-13T14:41:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:45Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:41:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:50Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:41:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:50Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:41:50Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444892689/job/131951669766",
+          "logEvidence": [
+            "v7 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:40:35.3737649Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache",
+            "v7 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:21.3373484Z Successfully set up Go version 1.25.0",
+            "v7 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:35.4954080Z Found in cache @ C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+            "v7 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:35.4968119Z Successfully set up Go version 1.25.0"
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "d-only-cache-c",
+              "revision": "v7",
+              "actionSha": "b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444892689",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133924728832
+                },
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node24",
+              "bundleSha256": "BF45E369515068D889F53D70940132E5D328B66A0BAABFEEA6769577982578A8"
+            },
+            "cold": {
+              "scenario": "d-only-cache-c",
+              "phase": "cold",
+              "actionSha": "b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301776813303126,
+              "markerWriteTicks": 639301776813303126,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "d-only-cache-c",
+              "phase": "warm",
+              "actionSha": "b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\c76d3fa0d1ec4ef2a9a3d901bd7af7b0\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        },
+        {
+          "completedAt": "2026-11-13T14:42:26Z",
+          "conclusion": "failure",
+          "databaseId": 131951670198,
+          "name": "v7 / hypothetical-cache-d",
+          "startedAt": "2026-11-13T14:40:05Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:07Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:06Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:23Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:07Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:33Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:23Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:35Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:33Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:46Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:46Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:50Z",
+              "conclusion": "success",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:50Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:41:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:50Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:41:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:50Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:41:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:52Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:41:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:52Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:41:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:57Z",
+              "conclusion": "success",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:41:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:57Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:41:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:57Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:41:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:57Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:41:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:04Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:41:57Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:05Z",
+              "conclusion": "failure",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:42:04Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:07Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:42:05Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:07Z",
+              "conclusion": "skipped",
+              "name": "Post Warm lookup with setup-go v7",
+              "number": 35,
+              "startedAt": "2026-11-13T14:42:07Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:07Z",
+              "conclusion": "skipped",
+              "name": "Post Cold installation with setup-go v7",
+              "number": 36,
+              "startedAt": "2026-11-13T14:42:07Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:12Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:42:07Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:17Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:42:12Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:17Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:42:17Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444892689/job/131951670198",
+          "logEvidence": [
+            "v7 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:40:35.3232106Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache",
+            "v7 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:19.5337448Z EEXIST: file already exists, symlink 'D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64'",
+            "v7 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:50.4512746Z ##[error]Failed to download version 1.25.0: Error: EEXIST: file already exists, symlink 'D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64'",
+            "v7 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:53.2186796Z Found in cache @ D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+            "v7 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:53.2193359Z Successfully set up Go version 1.25.0",
+            "v7 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:05.0505579Z ##[warning]D: cold install failed after populating a reusable cache, and warm reuse passed. This matches the predicted cold-only pattern; confirm EEXIST and identical junction paths in the cold setup-go log. The job deliberately remains failed."
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "hypothetical-cache-d",
+              "revision": "v7",
+              "actionSha": "b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444892689",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                },
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133819838464
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node24",
+              "bundleSha256": "BF45E369515068D889F53D70940132E5D328B66A0BAABFEEA6769577982578A8"
+            },
+            "cold": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "cold",
+              "actionSha": "b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "setupOutcome": "failure",
+              "logical": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+              "status": "failed",
+              "error": "setup-go outcome: failure. Inspect its log for the exact error; a network/download failure is not proof of the junction defect.",
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ]
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301777104438297,
+              "markerWriteTicks": 639301777104438297,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "warm",
+              "actionSha": "b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "setupOutcome": "success",
+              "logical": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "D:\\setup-go-probe\\5dc8ab5d3b7e4f1b8ee99e9a5b9c986c\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        }
+      ],
+      "status": "completed",
+      "updatedAt": "2026-11-13T14:42:26Z",
+      "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444892689",
+      "revision": "v7"
+    },
+    {
+      "conclusion": "failure",
+      "createdAt": "2026-11-13T14:40:04Z",
+      "databaseId": 43444901637,
+      "headSha": "ba5e46f83f1cdb2e0a515510700b1c4816a13275",
+      "jobs": [
+        {
+          "completedAt": "2026-11-13T14:42:35Z",
+          "conclusion": "failure",
+          "databaseId": 131951700789,
+          "name": "v6 / hypothetical-cache-d",
+          "startedAt": "2026-11-13T14:40:07Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:09Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:08Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:35Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:09Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:43Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:45Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:54Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:55Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:54Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:55Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:55Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:58Z",
+              "conclusion": "success",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:40:55Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:58Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:41:58Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:58Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:41:58Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:59Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:41:58Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:00Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:41:59Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:00Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:42:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:08Z",
+              "conclusion": "success",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:42:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:08Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:42:08Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:08Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:42:08Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:15Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:42:08Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:15Z",
+              "conclusion": "failure",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:42:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:16Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:42:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:16Z",
+              "conclusion": "skipped",
+              "name": "Post Warm lookup with setup-go v6",
+              "number": 35,
+              "startedAt": "2026-11-13T14:42:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:16Z",
+              "conclusion": "skipped",
+              "name": "Post Cold installation with setup-go v6",
+              "number": 36,
+              "startedAt": "2026-11-13T14:42:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:21Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:42:16Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:26Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:42:21Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:26Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:42:26Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444901637/job/131951700789",
+          "logEvidence": [
+            "v6 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:40:45.2985975Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache",
+            "v6 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:26.5516254Z EEXIST: file already exists, symlink 'D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64'",
+            "v6 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:58.0592333Z ##[error]Failed to download version 1.25.0: Error: EEXIST: file already exists, symlink 'D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64'",
+            "v6 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:00.5418703Z Found in cache @ D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+            "v6 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:00.5431025Z Successfully set up Go version 1.25.0",
+            "v6 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:15.5782109Z ##[warning]D: cold install failed after populating a reusable cache, and warm reuse passed. This matches the predicted cold-only pattern; confirm EEXIST and identical junction paths in the cold setup-go log. The job deliberately remains failed."
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "hypothetical-cache-d",
+              "revision": "v6",
+              "actionSha": "924ae3a1cded613372ab5595356fb5720e22ba16",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444901637",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                },
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133877284864
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node24",
+              "bundleSha256": "67A5BACD381CF1B90FD8490E32AA40092094176DB43E75493164941A6A072446"
+            },
+            "cold": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "cold",
+              "actionSha": "924ae3a1cded613372ab5595356fb5720e22ba16",
+              "setupOutcome": "failure",
+              "logical": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+              "status": "failed",
+              "error": "setup-go outcome: failure. Inspect its log for the exact error; a network/download failure is not proof of the junction defect.",
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ]
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301777180529659,
+              "markerWriteTicks": 639301777180529659,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "warm",
+              "actionSha": "924ae3a1cded613372ab5595356fb5720e22ba16",
+              "setupOutcome": "success",
+              "logical": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "D:\\setup-go-probe\\0e4bf0033a734eda8744e0cd00719e4b\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        },
+        {
+          "completedAt": "2026-11-13T14:41:47Z",
+          "conclusion": "success",
+          "databaseId": 131951701133,
+          "name": "v6 / d-only-cache-c",
+          "startedAt": "2026-11-13T14:40:08Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:09Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:08Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:23Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:09Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:31Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:23Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:33Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:31Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:43Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:33Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:44Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:43Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:44Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:19Z",
+              "conclusion": "success",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:40:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:19Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:41:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:19Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:41:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:26Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:41:19Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:27Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:41:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:27Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:41:27Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:28Z",
+              "conclusion": "success",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:41:27Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:28Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:41:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:28Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:41:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:30Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:41:28Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:31Z",
+              "conclusion": "success",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:41:30Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:32Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:41:31Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:33Z",
+              "conclusion": "success",
+              "name": "Post Warm lookup with setup-go v6",
+              "number": 35,
+              "startedAt": "2026-11-13T14:41:32Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:33Z",
+              "conclusion": "success",
+              "name": "Post Cold installation with setup-go v6",
+              "number": 36,
+              "startedAt": "2026-11-13T14:41:33Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:38Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:41:33Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:43Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:41:38Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:43Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:41:43Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444901637/job/131951701133",
+          "logEvidence": [
+            "v6 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:40:33.2080757Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache",
+            "v6 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:15.3502742Z Successfully set up Go version 1.25.0",
+            "v6 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:27.9765512Z Found in cache @ C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+            "v6 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:27.9778625Z Successfully set up Go version 1.25.0"
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "d-only-cache-c",
+              "revision": "v6",
+              "actionSha": "924ae3a1cded613372ab5595356fb5720e22ba16",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444901637",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                },
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133855203328
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node24",
+              "bundleSha256": "67A5BACD381CF1B90FD8490E32AA40092094176DB43E75493164941A6A072446"
+            },
+            "cold": {
+              "scenario": "d-only-cache-c",
+              "phase": "cold",
+              "actionSha": "924ae3a1cded613372ab5595356fb5720e22ba16",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301776753463013,
+              "markerWriteTicks": 639301776753463013,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "d-only-cache-c",
+              "phase": "warm",
+              "actionSha": "924ae3a1cded613372ab5595356fb5720e22ba16",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\08e1b1c79bd24e849ebcd6d07b89a18e\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        }
+      ],
+      "status": "completed",
+      "updatedAt": "2026-11-13T14:42:36Z",
+      "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444901637",
+      "revision": "v6"
+    },
+    {
+      "conclusion": "failure",
+      "createdAt": "2026-11-13T14:40:07Z",
+      "databaseId": 43444908827,
+      "headSha": "ba5e46f83f1cdb2e0a515510700b1c4816a13275",
+      "jobs": [
+        {
+          "completedAt": "2026-11-13T14:41:53Z",
+          "conclusion": "success",
+          "databaseId": 131951720509,
+          "name": "v5 / d-only-cache-c",
+          "startedAt": "2026-11-13T14:40:10Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:11Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:10Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:26Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:11Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:34Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:26Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:35Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:46Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:46Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:46Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:46Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:25Z",
+              "conclusion": "success",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:25Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:41:25Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:34Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:41:25Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:34Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:41:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:34Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:41:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:34Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:41:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:35Z",
+              "conclusion": "success",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:41:34Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:35Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:41:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:37Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:41:35Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:37Z",
+              "conclusion": "success",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:41:37Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:39Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:41:37Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:39Z",
+              "conclusion": "success",
+              "name": "Post Warm lookup with setup-go v5",
+              "number": 35,
+              "startedAt": "2026-11-13T14:41:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:39Z",
+              "conclusion": "success",
+              "name": "Post Cold installation with setup-go v5",
+              "number": 36,
+              "startedAt": "2026-11-13T14:41:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:44Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:41:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:49Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:41:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:49Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:41:49Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444908827/job/131951720509",
+          "logEvidence": [
+            "v5 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:40:35.7991999Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache",
+            "v5 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:20.4402442Z Successfully set up Go version 1.25.0",
+            "v5 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:34.7949135Z Found in cache @ C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+            "v5 / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:34.7971062Z Successfully set up Go version 1.25.0"
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "d-only-cache-c",
+              "revision": "v5",
+              "actionSha": "40f1582b2485089dde7abd97c1529aa768e1baff",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444908827",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                },
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133895557120
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node20",
+              "bundleSha256": "4C45B99B2949E895C47642F887DF4185C00EDB9B082B858882A438A565BD0095"
+            },
+            "cold": {
+              "scenario": "d-only-cache-c",
+              "phase": "cold",
+              "actionSha": "40f1582b2485089dde7abd97c1529aa768e1baff",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301776804217155,
+              "markerWriteTicks": 639301776804217155,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "d-only-cache-c",
+              "phase": "warm",
+              "actionSha": "40f1582b2485089dde7abd97c1529aa768e1baff",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\169d622e5d6644f5aa14ee8024edd650\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        },
+        {
+          "completedAt": "2026-11-13T14:42:20Z",
+          "conclusion": "failure",
+          "databaseId": 131951720962,
+          "name": "v5 / hypothetical-cache-d",
+          "startedAt": "2026-11-13T14:40:10Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:13Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:11Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:27Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:13Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:36Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:27Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:37Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:36Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:46Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:37Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:47Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:47Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:47Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:40:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:45Z",
+              "conclusion": "success",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:40:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:45Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:41:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:47Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:41:45Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:47Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:41:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:47Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:41:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:47Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:41:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:53Z",
+              "conclusion": "success",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:41:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:53Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:41:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:00Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:41:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:00Z",
+              "conclusion": "failure",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:42:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:03Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:42:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:03Z",
+              "conclusion": "skipped",
+              "name": "Post Warm lookup with setup-go v5",
+              "number": 35,
+              "startedAt": "2026-11-13T14:42:03Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:03Z",
+              "conclusion": "skipped",
+              "name": "Post Cold installation with setup-go v5",
+              "number": 36,
+              "startedAt": "2026-11-13T14:42:03Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:07Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:42:03Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:12Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:42:07Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:12Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:42:12Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444908827/job/131951720962",
+          "logEvidence": [
+            "v5 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:40:37.4718229Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache",
+            "v5 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:16.5869356Z EEXIST: file already exists, symlink 'D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64'",
+            "v5 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:45.2718081Z ##[error]Failed to download version 1.25.0: Error: EEXIST: file already exists, symlink 'D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64'",
+            "v5 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:47.7535354Z Found in cache @ D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+            "v5 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:47.7556227Z Successfully set up Go version 1.25.0",
+            "v5 / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:00.6180217Z ##[warning]D: cold install failed after populating a reusable cache, and warm reuse passed. This matches the predicted cold-only pattern; confirm EEXIST and identical junction paths in the cold setup-go log. The job deliberately remains failed."
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "hypothetical-cache-d",
+              "revision": "v5",
+              "actionSha": "40f1582b2485089dde7abd97c1529aa768e1baff",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444908827",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                },
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133824937984
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node20",
+              "bundleSha256": "4C45B99B2949E895C47642F887DF4185C00EDB9B082B858882A438A565BD0095"
+            },
+            "cold": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "cold",
+              "actionSha": "40f1582b2485089dde7abd97c1529aa768e1baff",
+              "setupOutcome": "failure",
+              "logical": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+              "status": "failed",
+              "error": "setup-go outcome: failure. Inspect its log for the exact error; a network/download failure is not proof of the junction defect.",
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ]
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301777052668887,
+              "markerWriteTicks": 639301777052668887,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "warm",
+              "actionSha": "40f1582b2485089dde7abd97c1529aa768e1baff",
+              "setupOutcome": "success",
+              "logical": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "D:\\setup-go-probe\\8a9787a5e3c2436aafcdb8b58e51501c\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        }
+      ],
+      "status": "completed",
+      "updatedAt": "2026-11-13T14:42:21Z",
+      "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444908827",
+      "revision": "v5"
+    },
+    {
+      "conclusion": "failure",
+      "createdAt": "2026-11-13T14:40:09Z",
+      "databaseId": 43444915602,
+      "headSha": "ba5e46f83f1cdb2e0a515510700b1c4816a13275",
+      "jobs": [
+        {
+          "completedAt": "2026-11-13T14:42:03Z",
+          "conclusion": "success",
+          "databaseId": 131951743966,
+          "name": "audit-pin / d-only-cache-c",
+          "startedAt": "2026-11-13T14:40:13Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:15Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:14Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:29Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:37Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:29Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:39Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:37Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:50Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:39Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:50Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:50Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:50Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:40:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:50Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:40:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:31Z",
+              "conclusion": "success",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:40:50Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:40Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:41:31Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:40Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:41:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:40Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:41:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:40Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:41:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:40Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:41:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:41Z",
+              "conclusion": "success",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:41:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:44Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:41:41Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:44Z",
+              "conclusion": "success",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:41:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:46Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:41:44Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:47Z",
+              "conclusion": "success",
+              "name": "Post Warm lookup with the additional audited pin",
+              "number": 35,
+              "startedAt": "2026-11-13T14:41:46Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:47Z",
+              "conclusion": "success",
+              "name": "Post Cold installation with the additional audited pin",
+              "number": 36,
+              "startedAt": "2026-11-13T14:41:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:52Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:41:47Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:57Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:41:52Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:41:57Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:41:57Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444915602/job/131951743966",
+          "logEvidence": [
+            "audit-pin / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:40:39.4661980Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache",
+            "audit-pin / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:26.3646331Z Successfully set up Go version 1.25.0",
+            "audit-pin / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:41.4385834Z Found in cache @ C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+            "audit-pin / d-only-cache-c\tUNKNOWN STEP\t2026-11-13T14:41:41.4401653Z Successfully set up Go version 1.25.0"
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "d-only-cache-c",
+              "revision": "audit-pin",
+              "actionSha": "4a3601121dd01d1626a1e23e37211e3254c1c06c",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444915602",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                },
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133824823296
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node24",
+              "bundleSha256": "35E35F2BB585AF7AF718C509063DB972DE14B6519ED838E5EE2BA9B6BA827D00"
+            },
+            "cold": {
+              "scenario": "d-only-cache-c",
+              "phase": "cold",
+              "actionSha": "4a3601121dd01d1626a1e23e37211e3254c1c06c",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301776863514269,
+              "markerWriteTicks": 639301776863514269,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "d-only-cache-c",
+              "phase": "warm",
+              "actionSha": "4a3601121dd01d1626a1e23e37211e3254c1c06c",
+              "setupOutcome": "success",
+              "logical": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory, ReparsePoint",
+                  "linkType": "Junction",
+                  "target": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64"
+                },
+                {
+                  "path": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive, ReparsePoint",
+                  "linkType": "SymbolicLink",
+                  "target": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64.complete"
+                },
+                {
+                  "path": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "C:\\setup-go-probe\\5680875c2da2473db710bb5b50fd8579\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        },
+        {
+          "completedAt": "2026-11-13T14:42:37Z",
+          "conclusion": "failure",
+          "databaseId": 131951744413,
+          "name": "audit-pin / hypothetical-cache-d",
+          "startedAt": "2026-11-13T14:40:12Z",
+          "status": "completed",
+          "steps": [
+            {
+              "completedAt": "2026-11-13T14:40:14Z",
+              "conclusion": "success",
+              "name": "Set up job",
+              "number": 1,
+              "startedAt": "2026-11-13T14:40:13Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:32Z",
+              "conclusion": "success",
+              "name": "Prepare D drive only (hosted Windows Arm guard)",
+              "number": 2,
+              "startedAt": "2026-11-13T14:40:14Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:40Z",
+              "conclusion": "success",
+              "name": "Checkout verification scripts",
+              "number": 3,
+              "startedAt": "2026-11-13T14:40:32Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:42Z",
+              "conclusion": "success",
+              "name": "Prepare isolated empty tool caches",
+              "number": 4,
+              "startedAt": "2026-11-13T14:40:40Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:53Z",
+              "conclusion": "success",
+              "name": "Fetch the immutable official action",
+              "number": 5,
+              "startedAt": "2026-11-13T14:40:42Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:53Z",
+              "conclusion": "success",
+              "name": "Apply in-process cache override without changing the action bundle",
+              "number": 6,
+              "startedAt": "2026-11-13T14:40:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:53Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v7",
+              "number": 7,
+              "startedAt": "2026-11-13T14:40:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:53Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v6",
+              "number": 8,
+              "startedAt": "2026-11-13T14:40:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:40:53Z",
+              "conclusion": "skipped",
+              "name": "Cold installation with setup-go v5",
+              "number": 9,
+              "startedAt": "2026-11-13T14:40:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:00Z",
+              "conclusion": "success",
+              "name": "Cold installation with the additional audited pin",
+              "number": 10,
+              "startedAt": "2026-11-13T14:40:53Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:02Z",
+              "conclusion": "success",
+              "name": "Record cold-install evidence and smoke test",
+              "number": 11,
+              "startedAt": "2026-11-13T14:42:00Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:03Z",
+              "conclusion": "success",
+              "name": "Snapshot the completed cache before reuse",
+              "number": 12,
+              "startedAt": "2026-11-13T14:42:02Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:03Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v7",
+              "number": 13,
+              "startedAt": "2026-11-13T14:42:03Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:03Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v6",
+              "number": 14,
+              "startedAt": "2026-11-13T14:42:03Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:03Z",
+              "conclusion": "skipped",
+              "name": "Warm lookup with setup-go v5",
+              "number": 15,
+              "startedAt": "2026-11-13T14:42:03Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:07Z",
+              "conclusion": "success",
+              "name": "Warm lookup with the additional audited pin",
+              "number": 16,
+              "startedAt": "2026-11-13T14:42:03Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:15Z",
+              "conclusion": "success",
+              "name": "Verify warm reuse and smoke test",
+              "number": 17,
+              "startedAt": "2026-11-13T14:42:07Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:15Z",
+              "conclusion": "failure",
+              "name": "Enforce cold and warm outcomes (never hide an installation failure)",
+              "number": 18,
+              "startedAt": "2026-11-13T14:42:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:17Z",
+              "conclusion": "success",
+              "name": "Upload diagnostics even when setup-go fails",
+              "number": 19,
+              "startedAt": "2026-11-13T14:42:15Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:17Z",
+              "conclusion": "skipped",
+              "name": "Post Warm lookup with the additional audited pin",
+              "number": 35,
+              "startedAt": "2026-11-13T14:42:17Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:17Z",
+              "conclusion": "skipped",
+              "name": "Post Cold installation with the additional audited pin",
+              "number": 36,
+              "startedAt": "2026-11-13T14:42:17Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:22Z",
+              "conclusion": "success",
+              "name": "Post Fetch the immutable official action",
+              "number": 37,
+              "startedAt": "2026-11-13T14:42:17Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:28Z",
+              "conclusion": "success",
+              "name": "Post Checkout verification scripts",
+              "number": 38,
+              "startedAt": "2026-11-13T14:42:22Z",
+              "status": "completed"
+            },
+            {
+              "completedAt": "2026-11-13T14:42:28Z",
+              "conclusion": "success",
+              "name": "Complete job",
+              "number": 39,
+              "startedAt": "2026-11-13T14:42:28Z",
+              "status": "completed"
+            }
+          ],
+          "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444915602/job/131951744413",
+          "logEvidence": [
+            "audit-pin / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:40:42.3121688Z Cold-install precondition verified: both roots are empty. Selected RUNNER_TOOL_CACHE=D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache",
+            "audit-pin / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:41:29.5384642Z EEXIST: file already exists, symlink 'D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64'",
+            "audit-pin / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:00.3721608Z ##[error]Failed to download version 1.25.0: Error: EEXIST: file already exists, symlink 'D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64' -> 'D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64'",
+            "audit-pin / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:03.3602169Z Found in cache @ D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+            "audit-pin / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:03.3616744Z Successfully set up Go version 1.25.0",
+            "audit-pin / hypothetical-cache-d\tUNKNOWN STEP\t2026-11-13T14:42:15.5150837Z ##[warning]D: cold install failed after populating a reusable cache, and warm reuse passed. This matches the predicted cold-only pattern; confirm EEXIST and identical junction paths in the cold setup-go log. The job deliberately remains failed."
+          ],
+          "evidence": {
+            "before": {
+              "scenario": "hypothetical-cache-d",
+              "revision": "audit-pin",
+              "actionSha": "4a3601121dd01d1626a1e23e37211e3254c1c06c",
+              "goVersion": "1.25.0",
+              "architecture": "arm64",
+              "toolcache": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache",
+              "cacheC": "C:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache",
+              "cacheD": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache",
+              "baseline": {
+                "GITHUB_WORKSPACE": "C:\\a\\windows-on-arm-refs-impact\\windows-on-arm-refs-impact",
+                "RUNNER_TEMP": "C:\\a\\_temp",
+                "TEMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "TMP": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp",
+                "RUNNER_TOOL_CACHE": "C:\\hostedtoolcache\\windows"
+              },
+              "coldCacheVerified": true,
+              "imageOS": "win11-vs2026-arm64",
+              "imageVersion": "20261101.203.1",
+              "runUrl": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444915602",
+              "runAttempt": "1",
+              "volumes": [
+                {
+                  "DriveLetter": "D",
+                  "FileSystem": "ReFS",
+                  "Size": 236156092416,
+                  "SizeRemaining": 232978251776
+                },
+                {
+                  "DriveLetter": "C",
+                  "FileSystem": "NTFS",
+                  "Size": 274284392448,
+                  "SizeRemaining": 133856845824
+                }
+              ],
+              "executionMode": "Official pinned bundle, original Node runtime, in-process cache override",
+              "nodeRuntime": "node24",
+              "bundleSha256": "35E35F2BB585AF7AF718C509063DB972DE14B6519ED838E5EE2BA9B6BA827D00"
+            },
+            "cold": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "cold",
+              "actionSha": "4a3601121dd01d1626a1e23e37211e3254c1c06c",
+              "setupOutcome": "failure",
+              "logical": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+              "status": "failed",
+              "error": "setup-go outcome: failure. Inspect its log for the exact error; a network/download failure is not proof of the junction defect.",
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ]
+            },
+            "warm-before": {
+              "physical": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+              "markerCreationTicks": 639301777203640721,
+              "markerWriteTicks": 639301777203640721,
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039"
+            },
+            "warm": {
+              "scenario": "hypothetical-cache-d",
+              "phase": "warm",
+              "actionSha": "4a3601121dd01d1626a1e23e37211e3254c1c06c",
+              "setupOutcome": "success",
+              "logical": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+              "physical": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+              "status": "verified-success",
+              "error": null,
+              "paths": [
+                {
+                  "path": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+                  "exists": true,
+                  "attributes": "Directory",
+                  "linkType": null,
+                  "target": null
+                },
+                {
+                  "path": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64.complete",
+                  "exists": true,
+                  "attributes": "Archive",
+                  "linkType": null,
+                  "target": null
+                }
+              ],
+              "goExecutable": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64\\bin\\go.exe",
+              "goVersion": "go version go1.25.0 windows/arm64",
+              "goEnvironment": {
+                "GOARCH": "arm64",
+                "GOOS": "windows",
+                "GOROOT": "D:\\setup-go-probe\\bdb3b3103b3645858b1fb518ff5b4f8b\\toolcache\\go\\1.25.0\\arm64",
+                "GOTOOLCHAIN": "local"
+              },
+              "sha256": "4180C97506C8D6B6A3F9B4228605CA7EA8A6D6C47EAC463B945E2E943E9F2039",
+              "warmCacheUnchanged": true,
+              "smoke": "hello world: go1.25.0 windows/arm64"
+            }
+          }
+        }
+      ],
+      "status": "completed",
+      "updatedAt": "2026-11-13T14:42:38Z",
+      "url": "https://github.com/marcpems/windows-on-arm-refs-impact/actions/runs/43444915602",
+      "revision": "audit-pin"
+    }
+  ],
+  "assessment": {
+    "date": "2026-11-13",
+    "validJobs": 8,
+    "successfulNativeSmokeChecks": 12,
+    "reproducedColdCacheRelocationFailures": 4,
+    "scope": "Controlled hosted Dev Drive simulation; no original surveyed project jobs rerun",
+    "excludedAttempts": [
+      {
+        "runId": 43443154974,
+        "reason": "Runner-owned variable overrode the YAML cache selection"
+      },
+      {
+        "runId": 43443161662,
+        "reason": "Runner-owned variable overrode the YAML cache selection"
+      },
+      {
+        "runId": 43443167702,
+        "reason": "Runner-owned variable overrode the YAML cache selection"
+      },
+      {
+        "runId": 43443175381,
+        "reason": "Runner-owned variable overrode the YAML cache selection"
+      },
+      {
+        "runId": 43444283017,
+        "reason": "PATH assertion collected all Go executables instead of the first match; excluded from final counts"
+      }
+    ]
+  }
+}
